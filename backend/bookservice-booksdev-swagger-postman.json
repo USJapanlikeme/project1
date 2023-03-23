@@ -1,0 +1,145 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2022-12-27T07:58:20Z",
+    "title" : "bookservice"
+  },
+  "host" : "49m604p9he.execute-api.us-east-2.amazonaws.com",
+  "basePath" : "/booksdev",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/bookservice" : {
+      "post" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "BookPostModel",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/BookPostModel"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/Empty"
+            },
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      },
+      "options" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/Empty"
+            },
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bookservice/books/{book_id}" : {
+      "get" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "book_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/Empty"
+            },
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      },
+      "options" : {
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "book_id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200 response",
+            "schema" : {
+              "$ref" : "#/definitions/Empty"
+            },
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Empty" : {
+      "type" : "object",
+      "title" : "Empty Schema"
+    },
+    "BookPostModel" : {
+      "type" : "object",
+      "required" : [ "book_id", "genre" ],
+      "properties" : {
+        "book_id" : {
+          "type" : "string",
+          "description" : "The unique identifier for a books"
+        },
+        "genre" : {
+          "type" : "string"
+        },
+        "author_name" : {
+          "type" : "string"
+        },
+        "phone_number" : {
+          "type" : "string"
+        },
+        "publisher" : {
+          "type" : "string"
+        }
+      },
+      "title" : "books"
+    }
+  }
+}
